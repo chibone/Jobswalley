@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Career Assessment Form&lt;/title&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Career Assessment Questionnaire&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;form id="careerForm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;1. Which of the following activities do you enjoy the most?&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="q1" value="a"&gt; Working with numbers and analyzing data&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="q1" value="b"&gt; Helping and interacting with people&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="q1" value="c"&gt; Being creative and working with artistic materials&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="q1" value="d"&gt; Solving problems and coming up with innovative solutions&lt;/label&gt;&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Add more questions with options following a similar structure --&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button type="submit"&gt;Submit&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="resultContainer"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('careerForm').addEventListener('submit', function(event) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>event.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var answers = new FormData(this);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var result = assessCareer(answers);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>displayResults(result);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function assessCareer(answers) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Assessment logic</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Return the result object or array with career options</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function displayResults(result) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var resultContainer = document.getElementById('resultContainer');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>resultContainer.innerHTML = ''; // Clear previous results</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (result.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var heading = document.createElement('h3');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>heading.textContent = 'Recommended Careers:';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultContainer.appendChild(heading);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>var list = document.createElement('ul');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>result.forEach(function(career) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>var listItem = document.createElement('li');</p>
+<p class="p1"><span class="Apple-converted-space">          </span>listItem.textContent = career.career;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>list.appendChild(listItem);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultContainer.appendChild(list);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var noResult = document.createElement('p');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>noResult.textContent = 'No suitable careers found based on your answers.';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>resultContainer.appendChild(noResult);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
